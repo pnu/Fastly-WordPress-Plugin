@@ -41,6 +41,9 @@ class FastlyPurge {
     add_action("edit_link_category",array(&$this, 'purgeLinkCategory'), 99);
     add_action("edit_post_tag",array(&$this, 'purgeTagCategory'), 99);
     
+    // Individual URLs
+    add_action('fastly_purge_url', array(&$this, 'purge'), 99);
+
     // Setup API
     $this->api = new FastlyAPI(
       get_option('fastly_api_key'), 
